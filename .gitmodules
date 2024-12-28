@@ -1,0 +1,6 @@
+[submodule "dnd-planner-frontend"]
+	path = dnd-planner-frontend
+	url = https://github.com/Mix50010/dnd-planner-frontend.git
+[submodule "dnd-planner-backend"]
+	path = dnd-planner-backend
+	url = https://github.com/L00kAhead/dnd-planner-backend.git

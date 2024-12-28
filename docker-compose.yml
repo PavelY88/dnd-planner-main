@@ -1,0 +1,37 @@
+
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./dnd-planner-backend
+      dockerfile: Dockerfile
+    environment:
+      - ADMIN=admin@example.com
+      - ADMIN_PASSWORD=securepassword
+
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+      - ./dnd-planner-backend:/app
+
+  db:
+    image: nouchka/sqlite3
+    volumes:
+      - db_data:/data/db
+
+  frontend:
+    build:
+      context: ./dnd-planner-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    stdin_open: true
+    tty: true
+
+volumes:
+  db_data:
+
